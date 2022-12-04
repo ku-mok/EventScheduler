@@ -7,7 +7,8 @@ module.exports = {
         "eslint:recommended",
         "airbnb",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
     ],
