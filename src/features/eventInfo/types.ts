@@ -1,11 +1,10 @@
-export class EventInfo {
-  constructor(
-    readonly name: string,
-    readonly place: string,
-    readonly actor: string[],
-    readonly date: { start: Date; end: Date },
-    readonly status: "preSell" | "selling" | "bought" | "playing",
-    readonly sellDate?: Date,
-    readonly goDate?: Date[]
-  ) {}
-}
+export type EventInfo = {
+  name: string;
+  place: string;
+  actor: string[];
+  status: "preSell" | "selling" | "bought" | "playing";
+  date?: { start: Date; end: Date };
+  sellDate?: Date;
+  goDate?: Date[];
+  url?: string;
+};

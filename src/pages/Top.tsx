@@ -1,19 +1,26 @@
-import { EventInfo } from "features/eventInfo/types";
 import EventInfoCardList from "features/eventInfo/components/EventCardList";
 import TwoColumns from "commons/templates/TwoColumns";
+import { useFetchEvents } from "features/eventInfo/useFetchIntrestedEvents";
 
 function Top() {
-  const interested: EventInfo[] = [];
-  const Left = () => (
-    <>
+  const Left = () => {
+    const { data: interested, error: interestedError } =
+      useFetchEvents("interested");
+    return interested ? (
       <EventInfoCardList events={interested} title="興味あり" />
-    </>
-  );
-  const Right = () => (
-    <>
-      <EventInfoCardList events={[]} title="参加予定(購入済み)" />
-    </>
-  );
+    ) : (
+      <div>Loading...</div>
+    );
+  };
+  const Right = () => {
+    const { data: interested, error: interestedError } =
+      useFetchEvents("going");
+    return interested ? (
+      <EventInfoCardList events={interested} title="参加予定" />
+    ) : (
+      <div>Loading...</div>
+    );
+  };
   return (
     <>
       <TwoColumns left={<Left />} right={<Right />} />

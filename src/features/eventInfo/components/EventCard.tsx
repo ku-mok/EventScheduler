@@ -12,7 +12,7 @@ export type EventInfoCardProps = {
   maxActorCount?: number;
 };
 function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
-  const { name, place, actor, date } = event;
+  const { name, place, actor, date, url } = event;
   const StatusBadge = () => {
     const goDate = event.goDate
       ? event.goDate.map((date) => format(date, "M/d")).join(",")
@@ -42,11 +42,7 @@ function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
       <div className="card-body">
         <div className="flex items-center justify-between">
           <h2 className="card-title text-3l underline underline-offset-4">
-            <a
-              href="http://battleballs.softboiled.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={url} target="_blank" rel="noopener noreferrer">
               {name}
             </a>
           </h2>
@@ -63,10 +59,12 @@ function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
         <dl>
           <dt className="ml-4">日程 </dt>
           <dd className="ml-8">
-            {`${format(date.start, "yy/MM/dd")}-${format(
-              date.end,
-              "yy/MM/dd"
-            )}`}
+            {date
+              ? `${format(date.start, "yy/MM/dd")}-${format(
+                  date.end,
+                  "yy/MM/dd"
+                )}`
+              : "日程未定"}
           </dd>
         </dl>
       </div>
