@@ -10,7 +10,7 @@ function ActionButton(props: ActionButtonProps) {
   const setNotHovered = useCallback(() => setIsHovered(false), []);
   return (
     <button
-      className="btn btn-xs hover:btn-primary gap-2"
+      className="btn btn-xs hover:btn-primary gap-2 btn-ghost"
       onMouseEnter={setHovered}
       onMouseLeave={setNotHovered}
     >

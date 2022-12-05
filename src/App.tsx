@@ -1,4 +1,4 @@
-import { EventInfo } from "features/eventInfo/types";
+import { EventInfo } from "features/eventInfo/model";
 import Top from "pages/Top";
 
 function App() {

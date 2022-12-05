@@ -1,10 +1,17 @@
 import useSWR from "swr";
-import { EventInfoRepositoryImpl } from "./repositories";
-const repository = new EventInfoRepositoryImpl();
+import {
+  EventInfoRepositoryImpl,
+  EventInfoRepositoryMock,
+} from "./repositories";
 
-export function useFetchEvents(status: "interested" | "going") {
-  const { data, error, mutate } = useSWR(["/api/events", status], (_, status) =>
-    repository.getEventInfoList(status)
+const repository =
+  process.env.NODE_ENV === "development"
+    ? new EventInfoRepositoryMock()
+    : new EventInfoRepositoryImpl();
+
+export function useFetchEvents(query?: { before?: Date }) {
+  const { data, error, mutate } = useSWR(["/api/events", query], (_, query) =>
+    repository.getEventInfoList(query)
   );
   return { data, error, mutate };
 }

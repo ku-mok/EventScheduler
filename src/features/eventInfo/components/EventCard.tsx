@@ -1,11 +1,12 @@
 import { format } from "date-fns";
 import ActionButton from "./EventCardActionButton";
-import { EventInfo } from "../types";
+import { EventInfo } from "../model";
 import {
   AiFillDelete as DeleteIcon,
   AiFillEdit as EditIcon,
   AiOutlineDoubleRight as RightIcon,
 } from "react-icons/ai";
+import StatusBadge from "./StatusBadge";
 
 export type EventInfoCardProps = {
   event: EventInfo;
@@ -13,40 +14,16 @@ export type EventInfoCardProps = {
 };
 function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
   const { name, place, actor, date, url } = event;
-  const StatusBadge = () => {
-    const goDate = event.goDate
-      ? event.goDate.map((date) => format(date, "M/d")).join(",")
-      : [];
-    const sellDate = event.sellDate ? format(event.sellDate, "M/d") : "";
-    switch (event.status) {
-      case "preSell":
-        return <div className="badge badge-lg ">{`販売前 (${sellDate})`}</div>;
-      case "selling":
-        return <div className="badge badge-lg badge-primary">販売中</div>;
-      case "bought":
-        return (
-          <div className="badge badge-lg badge-success">{`購入済 (${goDate})`}</div>
-        );
-      case "playing":
-        return (
-          <div className="badge badge-lg badge-info">{`公演中 ${
-            goDate.length > 0 ? `(${goDate})` : ""
-          }`}</div>
-        );
-      default:
-        return <></>;
-    }
-  };
   return (
-    <div className="card  w-10/12 mx-auto bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl">
       <div className="card-body">
-        <div className="flex items-center justify-between">
-          <h2 className="card-title text-3l underline underline-offset-4">
+        <div className="lg:flex items-center justify-between gap-4">
+          <h2 className="lg:w-9/12 card-title text-3l underline underline-offset-4">
             <a href={url} target="_blank" rel="noopener noreferrer">
               {name}
             </a>
           </h2>
-          <StatusBadge />
+          <StatusBadge className="flex-1" event={event} />
         </div>
         <dl>
           <dt className="ml-4">出演者 </dt>
@@ -68,7 +45,7 @@ function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
           </dd>
         </dl>
       </div>
-      <div className="card-actions justify-end mr-6 mb-6">
+      <div className="card-actions justify-end mr-6 mb-3">
         <ActionButton icon={<EditIcon />}>編集</ActionButton>
         <ActionButton icon={<DeleteIcon />}>削除</ActionButton>
         <ActionButton icon={<RightIcon />}>参加 </ActionButton>

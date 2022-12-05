@@ -30,7 +30,6 @@ paths:
                     name: "アサルトリリィ　Lost Memories"
                     place: "池袋　ブリリアホール"
                     actor: ["赤尾ひかる", "夏吉ゆうこ", "遠野ひかる", "星守紗凪", "岩田陽葵"]
-                    status: "playing"
                     date: {"start": "2020-01-20", "end": "2020-01-30"}
                     sellDate: "2020-01-01"
                     goDate: ["2020-01-20", "2020-01-21"]
@@ -40,7 +39,6 @@ paths:
                     url: "https://assaultlily.jp/"
                     place: "池袋　ブリリアホール"
                     actor: ["赤尾ひかる", "夏吉ゆうこ", "遠野ひかる", "星守紗凪", "岩田陽葵"]
-                    status: "playing"
                     date: {"start": "2020-01-20", "end": "2020-01-30"}
                     sellDate: "2020-01-01"
                     goDate: ["2020-01-20", "2020-01-21"]
@@ -133,6 +131,7 @@ components:
   schemas:
     Event:
         required:
+          - id
           - name
           - place
           - actor
@@ -142,6 +141,8 @@ components:
           id:
             type: integer
             format: int64
+          status:
+            type: string
           name:
             type: string
             example: "アサルトリリィ　Lost Memories"
@@ -151,11 +152,15 @@ components:
           actor:
             type: array
             example: ["赤尾ひかる", "夏吉ゆうこ", "遠野ひかる", "星守紗凪", "岩田陽葵"]
-          status:
-            type: string
-            example: "playing"
           date:
             type: object
+            properties:
+              start:
+                type: string
+                format: date-time
+              end:
+                type: string
+                format: date-time
             example: {"start": "2020-01-20", "end": "2020-01-30"}
           sellDate:
             type: string

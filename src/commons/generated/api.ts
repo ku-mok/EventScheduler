@@ -32,7 +32,13 @@ export interface Event {
      * @type {number}
      * @memberof Event
      */
-    'id'?: number;
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Event
+     */
+    'status': string;
     /**
      * 
      * @type {string}
@@ -53,16 +59,10 @@ export interface Event {
     'actor': Array;
     /**
      * 
-     * @type {string}
+     * @type {EventDate}
      * @memberof Event
      */
-    'status': string;
-    /**
-     * 
-     * @type {object}
-     * @memberof Event
-     */
-    'date'?: object;
+    'date'?: EventDate;
     /**
      * 
      * @type {string}
@@ -81,6 +81,25 @@ export interface Event {
      * @memberof Event
      */
     'url'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface EventDate
+ */
+export interface EventDate {
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDate
+     */
+    'start'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDate
+     */
+    'end'?: string;
 }
 
 /**

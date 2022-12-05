@@ -1,4 +1,5 @@
 import { RxHamburgerMenu as HamburgerIcon } from "react-icons/rx";
+import { AiFillPlusCircle as PlusIcon } from "react-icons/ai";
 
 function Header() {
   return (
@@ -12,6 +13,12 @@ function Header() {
         <a className="btn btn-ghost normal-case text-xl">
           Go to Theater Scheduler
         </a>
+      </div>
+      <div className="flex-none">
+        <div className="btn btn-ghost">
+          <PlusIcon />
+          <div>追加する</div>
+        </div>
       </div>
     </div>
   );
