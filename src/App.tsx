@@ -1,4 +1,4 @@
-import { StageInfo } from "features/stageInfo/types";
+import { EventInfo } from "features/eventInfo/types";
 import Top from "pages/Top";
 
 function App() {

@@ -1,4 +1,4 @@
-export class StageInfo {
+export class EventInfo {
   constructor(
     readonly name: string,
     readonly place: string,

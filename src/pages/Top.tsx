@@ -1,17 +1,17 @@
-import { StageInfo } from "features/stageInfo/types";
-import StageInfoCardList from "features/stageInfo/StageInfoCardList";
+import { EventInfo } from "features/eventInfo/types";
+import EventInfoCardList from "features/eventInfo/components/EventCardList";
 import TwoColumns from "commons/templates/TwoColumns";
 
 function Top() {
-  const interested: StageInfo[] = [];
+  const interested: EventInfo[] = [];
   const Left = () => (
     <>
-      <StageInfoCardList stages={interested} title="興味あり" />
+      <EventInfoCardList events={interested} title="興味あり" />
     </>
   );
   const Right = () => (
     <>
-      <StageInfoCardList stages={[]} title="参加予定(購入済み)" />
+      <EventInfoCardList events={[]} title="参加予定(購入済み)" />
     </>
   );
   return (

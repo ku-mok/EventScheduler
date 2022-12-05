@@ -1,24 +1,24 @@
 import { format } from "date-fns";
-import ActionButton from "./CardActionButton";
-import { StageInfo } from "./types";
+import ActionButton from "./EventCardActionButton";
+import { EventInfo } from "../types";
 import {
   AiFillDelete as DeleteIcon,
   AiFillEdit as EditIcon,
   AiOutlineDoubleRight as RightIcon,
 } from "react-icons/ai";
 
-export type StageInfoCardProps = {
-  stage: StageInfo;
+export type EventInfoCardProps = {
+  event: EventInfo;
   maxActorCount?: number;
 };
-function StageInfoCard({ maxActorCount = 3, stage }: StageInfoCardProps) {
-  const { name, place, actor, date } = stage;
+function EventInfoCard({ maxActorCount = 3, event }: EventInfoCardProps) {
+  const { name, place, actor, date } = event;
   const StatusBadge = () => {
-    const goDate = stage.goDate
-      ? stage.goDate.map((date) => format(date, "M/d")).join(",")
+    const goDate = event.goDate
+      ? event.goDate.map((date) => format(date, "M/d")).join(",")
       : [];
-    const sellDate = stage.sellDate ? format(stage.sellDate, "M/d") : "";
-    switch (stage.status) {
+    const sellDate = event.sellDate ? format(event.sellDate, "M/d") : "";
+    switch (event.status) {
       case "preSell":
         return <div className="badge badge-lg ">{`販売前 (${sellDate})`}</div>;
       case "selling":
@@ -79,4 +79,4 @@ function StageInfoCard({ maxActorCount = 3, stage }: StageInfoCardProps) {
   );
 }
 
-export default StageInfoCard;
+export default EventInfoCard;
