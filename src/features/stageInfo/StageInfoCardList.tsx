@@ -1,5 +1,5 @@
-import StageInfoCard from "../molecules/StageInfoCard";
-import { StageInfo } from "../../entity/StageInfo";
+import StageInfoCard from "./StageInfoCard";
+import { StageInfo } from "./types";
 import { AiFillPlusCircle as PlusIcon } from "react-icons/ai";
 
 export type StageInfoCardListProps = {

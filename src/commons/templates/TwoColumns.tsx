@@ -1,4 +1,4 @@
-import Header from "presentation/organisms/Header";
+import Header from "commons/uiParts/Header";
 
 function TwoColumns(props: { left: React.ReactNode; right: React.ReactNode }) {
   return (

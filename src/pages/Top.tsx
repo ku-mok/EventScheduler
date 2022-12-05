@@ -1,6 +1,6 @@
-import { StageInfo } from "entity/StageInfo";
-import StageInfoCardList from "presentation/organisms/StageInfoCardList";
-import TwoColumns from "presentation/templates/TwoColumns";
+import { StageInfo } from "features/stageInfo/types";
+import StageInfoCardList from "features/stageInfo/StageInfoCardList";
+import TwoColumns from "commons/templates/TwoColumns";
 
 function Top() {
   const interested: StageInfo[] = [];

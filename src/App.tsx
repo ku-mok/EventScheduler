@@ -1,5 +1,5 @@
-import { StageInfo } from "entity/StageInfo";
-import Top from "presentation/pages/Top";
+import { StageInfo } from "features/stageInfo/types";
+import Top from "pages/Top";
 
 function App() {
   return (

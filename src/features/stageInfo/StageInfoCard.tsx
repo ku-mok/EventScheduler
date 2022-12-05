@@ -1,6 +1,6 @@
 import { format } from "date-fns";
-import ActionButton from "./ActionButton";
-import { StageInfo } from "../../entity/StageInfo";
+import ActionButton from "./CardActionButton";
+import { StageInfo } from "./types";
 import {
   AiFillDelete as DeleteIcon,
   AiFillEdit as EditIcon,
